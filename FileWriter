@@ -1,0 +1,43 @@
+import java.util.*;
+import java.io.*;
+
+class Task7Ex3
+{
+        public static void main(String[] args) {
+                Random rand=new Random();
+
+                try {
+        FileWriter File = new FileWriter("Exercise.txt");
+        for(int i=0;i<100;i++)
+        {
+                int num=rand.nextInt(1000);
+                File.write(num+" ");
+        }
+        File.close();
+
+        File scanner =new File("Exercise.txt");
+        Scanner IncFile = new Scanner(scanner);
+        ArrayList<Integer> arr=new ArrayList<>();
+
+        while(IncFile.hasNext())
+        {
+                int num=IncFile.nextInt();
+                arr.add(num);
+        }
+        Collections.sort(arr);
+        
+        System.out.println("Increasing order: ");
+        for(int i=0;i<arr.size();i++)
+        {
+                System.out.print(arr.get(i)+ " ");
+        }
+
+        } 
+
+        catch (IOException e)
+        {
+              System.out.println("Error..");
+              e.printStackTrace();
+          }     
+        }
+}
