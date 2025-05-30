@@ -1,0 +1,69 @@
+
+public class Rectangle extends Shape{
+    private double width;
+    private double height;
+    public Rectangle(String color, double width, double height) {
+        super(color);
+        this.width = width;
+        this.height = height;
+    }
+    public Point getCornerLeftLow(){
+        Point temp = point;
+        temp.setX(point.getX()-(width/2));
+        temp.setY(point.getY()-(height/2));
+        return temp;
+    }
+
+    public Point getCornerLeftUpp(){
+        Point temp = point;
+        temp.setX(point.getX()-(width/2));
+        temp.setY(point.getY()+(height/2));
+        return temp;
+    }
+
+    public Point getCornerRightLow(){
+        Point temp = point;
+        temp.setX(point.getX()+(width/2));
+        temp.setY(point.getY()-(height/2));
+        return temp;
+    }
+
+    public Point getCornerRightUpp(){
+        Point temp = point;
+        temp.setX(point.getX()+(width/2));
+        temp.setY(point.getY()+(height/2));
+        return temp;
+    }
+
+    @Override
+    public void setLocation(double x, double y) {
+        super.setLocation(x, y);
+    }
+
+    public double getArea(){
+        return height*width;
+    }
+
+    @Override
+    public String getColor() {
+        return super.getColor();
+    }
+
+    @Override
+    public void setColor(String color) {
+        super.setColor(color);
+    }
+
+    @Override
+    public void Print() {
+        super.Print();
+        System.out.printf("\nRight Lower Corner: (%.2f,%.2f)%n",getCornerRightLow().getX(),getCornerRightLow().getY());
+        System.out.printf("Right Upper Corner: (%.2f,%.2f)%n",getCornerRightUpp().getX(),getCornerRightUpp().getY());
+        System.out.printf("\nLeft Lower Corner: (%.2f,%.2f)%n",getCornerLeftLow().getX(),getCornerLeftLow().getY());
+        System.out.printf("Left Upper Corner: (%.2f,%.2f)%n",getCornerLeftUpp().getX(),getCornerLeftUpp().getX());
+        System.out.println("\nHeight: "+height);
+        System.out.println("Width: "+width);
+    }
+}
+
+
