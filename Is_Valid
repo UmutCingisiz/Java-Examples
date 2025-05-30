@@ -1,0 +1,30 @@
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class Task7
+{
+   public static void main(String[] args)
+   {
+       Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter two integers: ");
+        int num1 = 0;
+        int num2 = 0;
+        boolean isValid = false;
+        while (!isValid)
+        {
+            try
+            {
+                num1 = scanner.nextInt();
+                num2 = scanner.nextInt();
+                isValid = true;
+            }
+            catch (InputMismatchException ex)
+            {
+                scanner.nextLine();
+                System.out.println("Incorrect Input!" );
+                System.out.print("Enter two integers: ");
+            }
+        }
+        System.out.println(num1 + " + " + num2 + " = " + (num1 + num2));
+   }
+}
